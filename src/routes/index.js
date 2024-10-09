@@ -1,5 +1,7 @@
 const router = require('express').Router();
 
+router.use('/', require('./swagger'));
+
 router.get('/', (req, res) => {
     res.send('Colby MacArthur - CSE341 Project 2');
 });
