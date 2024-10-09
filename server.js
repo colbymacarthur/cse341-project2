@@ -1,11 +1,26 @@
 const express = require('express');
+const mongodb = require('./src/data/database.js');
+const bodyParser = require('body-parser');
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Colby MacArthur - CSE 341 - Week 3 and 4');
-});
-
 port = 3000;
-app.listen(process.env.PORT || port, () => {
-    console.log(`Server running on port ${port}`);
+app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Z-Key');
+    next();
 })
+
+app.use('/', require('./src/routes'));
+
+mongodb.initDb((err) => {
+    if (err) {
+        console.log(err);
+    } else {
+        app.listen(port, () => {
+            console.log(`Server running on port ${port}`);
+        });
+    }
+}); 
