@@ -18,15 +18,19 @@ const getAllUsers = async (req, res) => {
     }
   };
 
-const getUserById = async (req, res) => {
-  // #swagger.tags = ['Users']
-    const userId = ObjectId.createFromHexString(req.params.id)
-    const result = await mongodb.getDb().collection('users').find({ _id: userId});
-    result.toArray().then((users) => {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(users);
-    })
-};
+  const getUserById = async (req, res) => {
+    // #swagger.tags = ['Users']
+    try {
+      const userId = ObjectId.createFromHexString(req.params.id);
+      const result = await mongodb.getDb().collection('users').find({ _id: userId });
+      const users = await result.toArray();
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(users);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  };
 
 const createUser = async (req, res) => {
   // #swagger.tags = ['Users']

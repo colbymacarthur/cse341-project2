@@ -53,25 +53,25 @@
               "type": "object",
               "properties": {
                 "userName": {
-                  "example": "any"
+                  "example": "BobTheBuilder"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "letsBuild"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "bob@gmail.com"
                 },
                 "bio": {
-                  "example": "any"
+                  "example": "I can build anything"
                 },
                 "join": {
-                  "example": "any"
+                  "example": "7 May 2023"
                 },
                 "followers": {
-                  "example": "any"
+                  "example": "77"
                 },
                 "following": {
-                  "example": "any"
+                  "example": "66"
                 }
               }
             }
@@ -99,25 +99,25 @@
               "type": "object",
               "properties": {
                 "userName": {
-                  "example": "any"
+                  "example": "BobTheExBuilder"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "letsBuild"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "bob@gmail.com"
                 },
                 "bio": {
-                  "example": "any"
+                  "example": "I can build anything"
                 },
                 "join": {
-                  "example": "any"
+                  "example": "7 May 2023"
                 },
                 "followers": {
-                  "example": "any"
+                  "example": "77"
                 },
                 "following": {
-                  "example": "any"
+                  "example": "66"
                 }
               }
             }
