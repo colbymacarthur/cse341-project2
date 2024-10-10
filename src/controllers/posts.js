@@ -56,8 +56,8 @@ const createPost = async (req, res) => {
     const post = {
         userName: req.body.userName,
         content: req.body.content,
-        date: new Date(),
-        likes: 0
+        date: req.body.date,
+        likes: req.body.likes || 0
     };
     try {
       const result = await mongodb.getDb().collection('posts').insertOne(post);

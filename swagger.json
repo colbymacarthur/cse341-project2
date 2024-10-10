@@ -22,6 +22,16 @@
         }
       }
     },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/users/": {
       "get": {
         "tags": [
@@ -53,25 +63,25 @@
               "type": "object",
               "properties": {
                 "userName": {
-                  "example": "BobTheBuilder"
+                  "example": "any"
                 },
                 "password": {
-                  "example": "letsBuild"
+                  "example": "any"
                 },
                 "email": {
-                  "example": "bob@gmail.com"
+                  "example": "any"
                 },
                 "bio": {
-                  "example": "I can build anything"
+                  "example": "any"
                 },
                 "join": {
-                  "example": "7 May 2023"
+                  "example": "any"
                 },
                 "followers": {
-                  "example": "77"
+                  "example": "any"
                 },
                 "following": {
-                  "example": "66"
+                  "example": "any"
                 }
               }
             }
@@ -80,6 +90,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -99,25 +112,25 @@
               "type": "object",
               "properties": {
                 "userName": {
-                  "example": "BobTheExBuilder"
+                  "example": "any"
                 },
                 "password": {
-                  "example": "letsBuild"
+                  "example": "any"
                 },
                 "email": {
-                  "example": "bob@gmail.com"
+                  "example": "any"
                 },
                 "bio": {
-                  "example": "I can build anything"
+                  "example": "any"
                 },
                 "join": {
-                  "example": "7 May 2023"
+                  "example": "any"
                 },
                 "followers": {
-                  "example": "77"
+                  "example": "any"
                 },
                 "following": {
-                  "example": "66"
+                  "example": "any"
                 }
               }
             }
@@ -126,6 +139,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -153,6 +169,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -173,6 +195,9 @@
           "204": {
             "description": "No Content"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -191,6 +216,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -214,6 +242,12 @@
                 },
                 "content": {
                   "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                },
+                "likes": {
+                  "example": "any"
                 }
               }
             }
@@ -222,6 +256,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -249,6 +286,15 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -290,6 +336,15 @@
           "204": {
             "description": "No Content"
           },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -312,18 +367,11 @@
           "204": {
             "description": "No Content"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "500": {
             "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
           }
         }
       }
