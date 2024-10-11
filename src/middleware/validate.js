@@ -1,13 +1,15 @@
 const validator = require('../helpers/validate');
+const { ObjectId } = require('mongodb');
+
 const validateUser = async (req, res, next) => {
     const validationRule = {
         "userName": "required|string|min:3",
-        "password": "required|string|min:6|confirmed",
+        "password": "required|string|min:6",
         "email": "required|email",
         "bio": "string|min:3|max:255",
         "join": "string",
-        "followers": "number",
-        "following": "number"
+        "followers": "integer",
+        "following": "integer"
     };
 
     await validator(req.body, validationRule, {}, (err, status) => {
@@ -29,7 +31,7 @@ const validatePost = async (req, res, next) => {
         "userName": "required|string|min:3",
         "content": "required|string|min:3",
         "date": "date",
-        "likes": "number"
+        "likes": "integer"
     };
 
     await validator(req.body, validationRule, {}, (err, status) => {
