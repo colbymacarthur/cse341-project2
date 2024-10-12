@@ -50,7 +50,8 @@ const validatePost = async (req, res, next) => {
 
 const validateHexkey = async (req, res, next) => {
     const { id } = req.params;
-    if (!ObjectId.isValid(id) || id.length !== 24) {
+    const hexRegex = /^[0-9a-fA-F]{24}$/;
+    if (!hexRegex.test(id)) {
       res.status(400).json({ message: 'Invalid ID format. ID must be a 24-character hexadecimal string' });
     } else {
       next();

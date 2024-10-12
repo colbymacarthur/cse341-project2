@@ -38,7 +38,7 @@ const getUserById = async (req, res) => {
       throw new Error(`User with ID ${userId} not found`);
     }
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(user);
+    res.status(200).json(users);
   } catch (err) {
     if (err.message.includes('Invalid user ID')) {
       res.status(400).json({ message: err.message });

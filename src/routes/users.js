@@ -11,7 +11,7 @@ router.get('/:id', validation.validateHexkey, usersController.getUserById);
 
 router.post('/', isAuthenticated, validation.validateUser, usersController.createUser);
 
-router.put('/', isAuthenticated, validation.validateUser, usersController.updateUser);
+router.put('/:id', isAuthenticated, validation.validateUser, usersController.updateUser);
 
 router.delete('/:id', isAuthenticated, validation.validateHexkey, usersController.deleteUser);
 
