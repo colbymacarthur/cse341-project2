@@ -3,15 +3,16 @@ const router = express.Router();
 
 const validation = require('../middleware/validate');
 const usersController = require('../controllers/users');
+const { isAuthenticated } = require('../middleware/authenticate');
 
 router.get('/', usersController.getAllUsers);
 
 router.get('/:id', validation.validateHexkey, usersController.getUserById);
 
-router.post('/', validation.validateUser, usersController.createUser);
+router.post('/', isAuthenticated, validation.validateUser, usersController.createUser);
 
-router.put('/', validation.validateUser, usersController.updateUser);
+router.put('/', isAuthenticated, validation.validateUser, usersController.updateUser);
 
-router.delete('/:id', validation.validateHexkey, usersController.deleteUser);
+router.delete('/:id', isAuthenticated, validation.validateHexkey, usersController.deleteUser);
 
 module.exports = router;
