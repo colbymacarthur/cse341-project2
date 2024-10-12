@@ -5,7 +5,7 @@ const doc = {
         title: 'CSE 341 Project 2',
         description: 'API Documentation',
     },
-    host: 'localhost:3000',
+    host: 'http://localhost:3000',
     schemes: [ 'http', 'https' ],
 };
     
