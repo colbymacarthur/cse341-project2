@@ -10,30 +10,29 @@ const { get } = require('mongoose');
 
 port = 3000;
 
-app
-    .use(bodyParser.json())
-    .use(session({
-        secret: 'secret',
-        resave: false,
-        saveUninitialized: true
-    }))
-    .use(passport.initialize())
-    .use(passport.session())
-    .use((req, res, next) => {
-        res.header(
-            'Access-Control-Allow-Origin', 
-            '*');
-        res.header(
-            'Access-Control-Allow-Headers', 
-            'Origin, X-Requested-With, Content-Type, Accept, Z-Key');
-        res.header(
-            'Access-Control-Allow-Methods', 
-            'GET, POST, PUT, DELETE, OPTIONS');
-        next();
-    })
-    .use(cors({ methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'] }))
-    .use(cors({ origin: '*' }))
-    .use('/', require('./src/routes'));
+app.use(bodyParser.json());
+app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use((req, res, next) => {
+    res.header(
+        'Access-Control-Allow-Origin', 
+        '*');
+    res.header(
+        'Access-Control-Allow-Headers', 
+        'Origin, X-Requested-With, Content-Type, Accept, Z-Key');
+    res.header(
+        'Access-Control-Allow-Methods', 
+        'GET, POST, PUT, DELETE, OPTIONS');
+    next();
+});
+app.use(cors({ methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'] }));
+app.use(cors({ origin: '*' }));
+app.use('/', require('./src/routes'));
 
 passport.use(new GithubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
